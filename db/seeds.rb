@@ -3,7 +3,7 @@ require "open-uri"
 
 Movie.destroy_all
 
-URL = 'https://tmdb.lewagon.com/movie/top_rated'.freeze
+URL = 'https://tmdb.lewagon.com/movie/popular'.freeze
 IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/original'.freeze
 
 response = JSON.parse(URI.open(URL).read)
