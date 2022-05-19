@@ -1,0 +1,9 @@
+<div class="pb-3 d-flex justify-content-between border-bottom">
+  <h1>Add a new list</h1>
+</div>
+<div class="my-3">
+  <%= simple_form_for @list do |f| %>
+    <%= f.input :name %>
+    <%= f.submit 'Add list', class: 'btn btn-success' %>
+  <% end %>
+</div>

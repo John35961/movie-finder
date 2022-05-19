@@ -1,0 +1,10 @@
+<div class="pb-3 d-flex justify-content-between border-bottom">
+  <h1>Add a new movie</h1>
+</div>
+<div class="my-3">
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.input :comment %>
+    <%= f.association :movie, collection: @movies %>
+    <%= f.submit 'Add bookmark', class: 'btn btn-success' %>
+  <% end %>
+</div>

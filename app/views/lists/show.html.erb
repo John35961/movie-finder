@@ -1,0 +1,16 @@
+<div class="pb-3 d-flex justify-content-between border-bottom">
+  <h1><%= @list.name %></h1>
+  <%= link_to 'Add movie', new_list_bookmark_path(@list), class: "h-100 align-self-center btn btn-outline-warning"  %>
+</div>
+<div class="grid my-3">
+  <% @list.bookmarks.each do |bookmark| %>
+    <div class="bg-light shadow-sm rounded">
+      <div style="background-image: linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.65)), url(<%= bookmark.movie.poster_url %>); background-size: cover; height: 150px;" class="d-flex justify-content-center align-items-center">
+        <h5 class="text-light"><%= bookmark.movie.title %></h5>
+      </div>
+      <div class="p-3">
+        <small class="text-black-50"><%= bookmark.movie.overview %></small>
+      </div>
+    </div>
+  <% end  %>
+</div>

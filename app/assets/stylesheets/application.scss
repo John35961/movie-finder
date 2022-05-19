@@ -5,9 +5,22 @@
 
 // External libraries
 @import "bootstrap/scss/bootstrap";
-@import "font-awesome-sprockets";
 @import "font-awesome";
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 15px;
+}
+
+// Small screens
+
+@media screen and (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
