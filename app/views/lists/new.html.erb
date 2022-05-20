@@ -4,6 +4,7 @@
 <div class="my-3">
   <%= simple_form_for @list do |f| %>
     <%= f.input :name %>
+    <%= f.input :banner, as: :file %>
     <%= f.submit 'Add list', class: 'btn btn-success' %>
   <% end %>
 </div>
