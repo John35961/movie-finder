@@ -1,16 +1,49 @@
-<div class="pb-3 d-flex justify-content-between border-bottom">
-  <h1><%= @list.name %></h1>
-  <%= link_to 'Add movie', new_list_bookmark_path(@list), class: "h-100 align-self-center btn btn-outline-warning"  %>
-</div>
-<div class="grid my-3">
-  <% @list.bookmarks.reverse.each do |bookmark| %>
-    <div class="bg-light shadow-sm rounded">
-      <div style="background-image: linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.65)), url(<%= bookmark.movie.poster_url %>); background-size: cover; height: 150px;" class="d-flex justify-content-center align-items-center">
-        <h5 class="text-light"><%= bookmark.movie.title %></h5>
+<% if @list.banner.attached?  %>
+  <div style="background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url(<%= cl_image_path(@list.banner.key)%>); background-size: cover; background-position: center; height: 50vh;" class="pb-3 d-flex justify-content-center align-items-center">
+    <h1 class="text-light"><%= @list.name %></h1>
+  </div>
+<% else %>
+  <div class="mt-5 pb-3 d-flex justify-content-center align-items-center">
+    <h1><%= @list.name %></h1>
+  </div>
+<% end %>
+<div class="container my-4 p-3">
+  <div class="row d-flex justify-content-center">
+    <div class="col-12 col-lg-8 pb-3 d-flex justify-content-between">
+      <% movie = @list.bookmarks.count == 1 ? 'movie' : 'movies' %>
+      <div class="d-flex align-items-center text-black-50">
+        <p class="mb-0 me-2">Created on <%= @list.created_at.strftime("%a. %e %Y") %></p>
+        <% if @list.bookmarks.count.nonzero? %>
+          <p class="mb-0">•</p>
+          <p class="mb-0 ms-2"><%= @list.bookmarks.length %> <%= movie %> bookmarked</p>
+        <% end %>
       </div>
-      <div class="p-3">
-        <small class="text-black-50"><%= bookmark.movie.overview %></small>
-      </div>
+      <%= link_to 'Add movie', new_list_bookmark_path(@list), class: "h-100 align-self-center btn btn-outline-warning"  %>
     </div>
-  <% end  %>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-12 col-lg-8">
+      <% if @list.bookmarks.count.nonzero? %>
+        <div class="grid my-3">
+          <% @list.bookmarks.reverse.each do |bookmark| %>
+            <div class="bg-light shadow-sm rounded">
+              <div style="background-image: linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.65)), url(<%= bookmark.movie.poster_url %>); background-size: cover; height: 150px;" class="d-flex justify-content-center align-items-center">
+                <h5 class="text-light"><%= bookmark.movie.title %></h5>
+              </div>
+              <div class="p-3">
+                <div class="d-flex justify-content-center pb-3 border-bottom">
+                  <i class="align-self-center me-3 fa-solid fa-quote-left opacity-25"></i>
+                  <h5 class="mb-0 text-center"><%= bookmark.comment %></h5>
+                  <i class="align-self-center ms-3 fa-solid fa-quote-right opacity-25"></i>
+                </div>
+                <p class="p-2 mt-2 text-black-50"><%= bookmark.movie.overview %></p>
+              </div>
+            </div>
+          <% end  %>
+        </div>
+      <% else %>
+        <h3 class="my-5 text-center text-black-50">No bookmark yet!</h3>
+      <% end %>
+    </div>
+  </div>
 </div>
