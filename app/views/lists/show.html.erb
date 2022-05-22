@@ -12,7 +12,7 @@
     <div class="col-12 col-lg-8 pb-3 d-flex justify-content-between">
       <% movie = @list.bookmarks.count == 1 ? 'movie' : 'movies' %>
       <div class="d-flex align-items-center text-black-50">
-        <p class="mb-0 me-2">Created on <%= @list.created_at.strftime("%a. %e %Y") %></p>
+        <p class="mb-0 me-2">Created on <%= @list.created_at.strftime("%a. %e %b") %></p>
         <% if @list.bookmarks.count.nonzero? %>
           <p class="mb-0">•</p>
           <p class="mb-0 ms-2"><%= @list.bookmarks.length %> <%= movie %> bookmarked</p>
