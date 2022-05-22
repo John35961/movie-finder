@@ -23,4 +23,14 @@
   .grid {
     grid-template-columns: repeat(1, 1fr);
   }
+  .list-data {
+    flex-direction: column;
+    .list-created-on, .list-bookmark-count {
+      align-self: flex-start!important;
+      margin: 0!important;
+    }
+    .list-separator {
+      display: none;
+    }
+  }
 }

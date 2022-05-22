@@ -11,14 +11,14 @@
   <div class="row d-flex justify-content-center">
     <div class="col-12 col-lg-8 pb-3 d-flex justify-content-between">
       <% movie = @list.bookmarks.count == 1 ? 'movie' : 'movies' %>
-      <div class="d-flex align-items-center text-black-50">
-        <p class="mb-0 me-2">Created on <%= @list.created_at.strftime("%a. %e %b") %></p>
+      <div class="list-data d-flex align-items-center text-black-50">
+        <p class="list-created-on mb-0 me-2">Created on <%= @list.created_at.strftime("%a. %e %b") %></p>
         <% if @list.bookmarks.count.nonzero? %>
-          <p class="mb-0">•</p>
-          <p class="mb-0 ms-2"><%= @list.bookmarks.length %> <%= movie %> bookmarked</p>
+          <p class="list-separator mb-0">•</p>
+          <p class="list-bookmark-count mb-0 ms-2"><%= @list.bookmarks.length %> <%= movie %> bookmarked</p>
         <% end %>
       </div>
-      <%= link_to 'Add movie', new_list_bookmark_path(@list), class: "h-100 align-self-center btn btn-outline-warning"  %>
+      <%= link_to 'Add movie', new_list_bookmark_path(@list), class: "align-self-center btn btn-outline-warning"  %>
     </div>
   </div>
   <div class="row d-flex justify-content-center">
