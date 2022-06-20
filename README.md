@@ -1,8 +1,6 @@
-# Movie Finder
+# [Movie Finder](https://lwg-rails-watch-list-prod.herokuapp.com/)
 
 Movie Finder allows you to add comments to a list of films, while also addding to bookmark lists. That application was among the very first Rails projects coded during [Le Wagon](https://github.com/lewagon) bootcamp, which I attented in spring 2022. The app's logic is very limited, but it was a good entry point to get to know more on routing, models and user uploads in Rails.
-
----
 
 ## Tools
 
@@ -15,8 +13,6 @@ Movie Finder allows you to add comments to a list of films, while also addding t
 * Cloudinary
 
 * IMDB API
-
----
 
 ## Run locally
 
